@@ -1,0 +1,20 @@
+version: '3.4'
+
+# https://docs.docker.com/compose/gpu-support/
+services:
+  springserv:
+    container_name: springserv
+    image: 'plandes/springserv'
+    volumes:
+      - ./models:/opt/models
+      - ./data:/opt/data
+    ports:
+      - "8080:8080"
+    command: /usr/bin/tail -f /dev/null
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - driver: nvidia
+    #           count: 1
+    #           capabilities: [gpu]

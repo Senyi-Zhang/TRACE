@@ -1,0 +1,43 @@
+#@meta {author: "Paul Landes"}
+#@meta {desc: "Python build configuration", date: "2025-11-23"}
+
+
+# primary author
+author:
+  name: Paul Landes
+  email: landes@mailc.net
+# GitHub account
+github:
+  user: plandes
+# other 'project' section metadata
+project:
+  domain: zensols
+  name: amrspring
+  short_description: A SPRING AMR service and client
+  long_description: A client and server that generates AMR graphs from natural language sentences.
+  keywords:
+    - abstract meaning representation
+    - amr
+  python:
+    # Python interpreter versions
+    version:
+      # constraint on install eligibility
+      required: '>=3.11,<3.14'
+      # last supported version of Python supported for the project
+      previous: '3.11.12'
+      # Python version supported for current development
+      current: '3.12.10'
+      # version of Python used to build/link specific to the host
+      package_host: '3.11.6'
+    # pypi dependencies added to 'project'
+    dependencies:
+      - 'requests~=2.32.5'
+      - 'zensols.util~=1.15.12'
+  # the program is called on the command line
+  has_entry_points: true
+doc:
+  api_config:
+    intersphinx_mapping:
+      util:
+        modules: ['zensols.util', 'zensols.persist', 'zensols.config', 'zensols.cli', 'zensols.multi']
+        url: '{RP_DOC_IM_URL}/{package}/'
