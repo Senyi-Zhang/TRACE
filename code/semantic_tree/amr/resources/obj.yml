@@ -1,6 +1,0 @@
-# @meta {desc: 'application configuration', date: '2024-02-18'}
-
-amr_spring_client:
-  class_name: zensols.amrspring.AmrParseClient
-  host: ${amr_spring_default:host}
-  port: ${amr_spring_default:port}

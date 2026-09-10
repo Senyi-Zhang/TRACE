@@ -1,0 +1,55 @@
+seed: 42
+setting: open
+
+data:
+  dataset: OTT-FV
+  train_file: ../OTT-FV/train.jsonl
+  test_file: ../OTT-FV/test.jsonl
+  table_file: ../OTT-FV/tables.json
+  tree_dir: ../artifacts/OTT-FV/trees
+  evidence_dir: ../artifacts/OTT-FV/evidence
+
+amr:
+  model: AMR3-structbart-L
+
+retrieval:
+  sbert_model: sentence-transformers/all-MiniLM-L6-v2
+  reranker_model: microsoft/deberta-v3-base
+  index_dir: ../artifacts/OTT-FV/index
+  reranker_dir: ../artifacts/OTT-FV/reranker
+  coarse_top_k: 200
+  table_top_k: 10
+  row_top_k: 10
+  max_table_rows: 50
+  max_table_length: 512
+  reranker_batch_size: 16
+  row_ranker: lexical
+
+retriever_training:
+  hard_negatives: 8
+  random_negatives: 2
+  query_source: nodes
+  dev_ratio: 0.1
+  batch_size: 8
+  learning_rate: 2.0e-5
+  warmup_ratio: 0.0
+  epochs: 3
+  warmup_ratio: 0.05
+  random_negative_weight: 0.5
+
+verifier:
+  backbone: microsoft/deberta-v3-base
+  max_length: 512
+  num_heads: 8
+  dropout: 0.1
+  batch_size: 16
+  node_batch_size: 32
+  learning_rate: 2.0e-5
+  weight_decay: 0.01
+  epochs: 3
+  gradient_accumulation_steps: 1
+  max_grad_norm: 1.0
+  mixed_precision: true
+  num_workers: 0
+  dev_ratio: 0.1
+  output_dir: ../artifacts/OTT-FV/verifier-open

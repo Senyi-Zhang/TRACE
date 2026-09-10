@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use TRACE, please cite our EMNLP 2026 paper."
+title: "TRACE: Tree-Structured Reasoning for Multi-Table Multi-Hop Fact-Checking"
+type: software
+authors:
+  - family-names: Zhang
+    given-names: Senyi
+  - family-names: Lee
+    given-names: Dongwon
+  - family-names: Zhang
+    given-names: Delvin Ce
+version: 1.0.0
+date-released: 2026-09-10
+repository-code: "https://github.com/Senyi-Zhang/TRACE"
+license: MIT
+

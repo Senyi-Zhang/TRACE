@@ -1,0 +1,26 @@
+seed: 42
+setting: gold
+
+data:
+  dataset: OTT-FV
+  train_file: ../OTT-FV/train.jsonl
+  test_file: ../OTT-FV/test.jsonl
+  table_file: ../OTT-FV/tables.json
+  tree_dir: ../artifacts/OTT-FV/trees
+  evidence_dir: ../artifacts/OTT-FV/evidence
+
+retrieval:
+  index_dir: ../artifacts/OTT-FV/index
+  reranker_dir: ../artifacts/OTT-FV/reranker
+  row_top_k: 10
+  row_ranker: lexical
+
+verifier:
+  backbone: microsoft/deberta-v3-base
+  max_length: 512
+  batch_size: 16
+  node_batch_size: 32
+  learning_rate: 2.0e-5
+  warmup_ratio: 0.0
+  epochs: 3
+  output_dir: ../artifacts/OTT-FV/verifier-gold

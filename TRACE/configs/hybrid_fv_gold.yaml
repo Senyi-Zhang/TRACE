@@ -1,0 +1,26 @@
+seed: 42
+setting: gold
+
+data:
+  dataset: Hybrid-FV
+  train_file: ../Hybrid-FV/train.jsonl
+  test_file: ../Hybrid-FV/test.jsonl
+  table_file: ../Hybrid-FV/tables.json
+  tree_dir: ../artifacts/Hybrid-FV/trees
+  evidence_dir: ../artifacts/Hybrid-FV/evidence
+
+retrieval:
+  index_dir: ../artifacts/Hybrid-FV/index
+  reranker_dir: ../artifacts/Hybrid-FV/reranker
+  row_top_k: 10
+  row_ranker: lexical
+
+verifier:
+  backbone: microsoft/deberta-v3-base
+  max_length: 512
+  batch_size: 16
+  node_batch_size: 32
+  learning_rate: 2.0e-5
+  warmup_ratio: 0.0
+  epochs: 3
+  output_dir: ../artifacts/Hybrid-FV/verifier-gold
